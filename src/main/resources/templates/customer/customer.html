@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cssTemplate.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+
+            <div class="card">
+
+                <div class="card-body">
+                    <div class="row">
+
+                        <!--<form th:object="${categoryForm}">-->
+                        <form th:action="@{/createCust}" th:object="${customerForm}" method="post">
+                            <div class="col-sm-12 form-group">
+                                <label>Name: </label>
+                                <input type="text" th:field="*{name}" placeholder="Enter your Name" class="form-control" />
+                                <!--<p class="alert alert-danger"><small>validation message</small></p>-->
+                                <p1 class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p1>
+                            </div>
+                            <hr/>
+
+                            <div class="d-grid gap-1">
+                                <button type="submit" class="btn btn-primary mb-3">Add</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
